@@ -13,7 +13,9 @@ class CampaignController {
   }
 
   async index(req, res) {
-    const campaign = await Campaign.findAll()
+    const campaign = await Campaign.findAll({
+      order: [['id', 'DESC']]
+    })
 
     return res.json(campaign)
   }

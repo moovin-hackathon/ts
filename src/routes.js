@@ -1,9 +1,27 @@
-import { Router } from 'express';
+import { Router } from 'express'
 
-const routes = new Router();
+import CustomerController from './app/controllers/CustomerController'
+import PurchaseController from './app/controllers/PurchaseController'
+import CategoryController from './app/controllers/CategoryController'
+import CampaignController from './app/controllers/CampaignController'
 
-routes.post('/customer', (req, res) =>
-  res.json({ message: 'Welcome to Omni CLI' })
-);
+const routes = new Router()
 
-export default routes;
+routes.post('/camapaigns', CampaignController.store)
+routes.get('/camapaigns', CampaignController.index)
+
+routes.get('/customers', CustomerController.index)
+routes.get('/customers/:id', CustomerController.show)
+routes.post('/customers', CustomerController.store)
+
+routes.get('/purchases', PurchaseController.index)
+routes.post('/purchases', PurchaseController.store)
+
+routes.get('/categories', CategoryController.index)
+routes.post('/categories', CategoryController.store)
+
+routes.get('/', (req, res) => {
+  res.json({ sucesso: true })
+})
+
+export default routes

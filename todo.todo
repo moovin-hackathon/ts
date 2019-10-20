@@ -1,0 +1,10 @@
+-customer
+  -nome
+  -email
+  -endereco
+  -data de nascimento
+  -produto comprado(com variações)
+  -data da compra
+
+-product
+  -name

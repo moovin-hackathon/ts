@@ -20,6 +20,8 @@ routes.post('/purchases', PurchaseController.store)
 routes.get('/categories', CategoryController.index)
 routes.post('/categories', CategoryController.store)
 
+routes.get('/adt', CategoryController.index)
+
 routes.get('/', (req, res) => {
   res.json({ sucesso: true })
 })

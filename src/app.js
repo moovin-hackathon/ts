@@ -1,5 +1,5 @@
 import 'dotenv/config'
-
+import { resolve } from 'path'
 import express from 'express'
 import cors from 'cors'
 import 'express-async-errors'
@@ -18,6 +18,7 @@ class App {
   middlewares() {
     this.server.use(express.json())
     this.server.use(cors())
+    this.server.use('/adp', express.static(resolve(__dirname, '..', 'public')))
   }
 
   routes() {
